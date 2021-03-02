@@ -1,10 +1,13 @@
 import React from 'react';
-
+import { connect } from 'react-redux';
+import { initDataAction } from './store/actionCreators'
 
 
 class Luckysheet extends React.Component {
 
+
     componentDidMount() {
+        this.props.initData();
         let luckysheet = window.luckysheet;
         // 配置项
         const options = {
@@ -181,4 +184,24 @@ class Luckysheet extends React.Component {
     }
 }
 
-export default Luckysheet
+const mapStateToProps = (state) => {
+    return {
+        // focused: state.get('header').get('focused')
+        // focused: state.getIn(['header', 'focused']),
+        // list: state.getIn(['header', 'list']),
+        // page: state.getIn(['header', 'page']),
+        // totalPage: state.getIn(['header', 'totalPage']),
+        // mouseIn: state.getIn(['header', 'mouseIn'])
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        initData() {
+            console.log('initDataAction')
+            dispatch(initDataAction())
+        },
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Luckysheet)

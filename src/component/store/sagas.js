@@ -1,11 +1,12 @@
 import { put, takeEvery } from 'redux-saga/effects'
-// import { GET_INIT_LIST } from './actionTypes';
-// import { initListAction } from './actionCreators';
+import { GET_INIT_DATA } from './actionTypes';
 import axios from 'axios';
 
-function* getInitList() {
+function* getInitData() {
+
     try {
-        const res =  yield axios.get('http://127.0.0.1:8888/api/todolist');
+        const res =  yield axios.get('/api/initData.json');
+        console.log(res)
         // const action = initListAction(res.data);
         // yield put(action);
     } catch(e) {
@@ -14,7 +15,7 @@ function* getInitList() {
 }
 
 function* mySaga() {
-    // yield takeEvery(GET_INIT_LIST, getInitList);
+    yield takeEvery(GET_INIT_DATA, getInitData);
 }
 
 export default mySaga;

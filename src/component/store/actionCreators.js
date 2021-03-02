@@ -1,6 +1,7 @@
 import axios from 'axios';
 import * as actionTypes from './actionTypes';
 import { fromJS } from "immutable";
+import {GET_INIT_DATA} from "./actionTypes";
 
 const changeList = (data) => ({
     type: actionTypes.CHANGE_LIST,
@@ -39,3 +40,6 @@ export const changePage = (page) => ({
     page
 });
 
+export const initDataAction = () => ({
+    type: actionTypes.GET_INIT_DATA
+});
