@@ -1,8 +1,8 @@
-import  { combineReducers } from "redux-immutable";
-import { reducer as headerReducer } from '../component/store';
+import  { combineReducers } from "redux";
+import { luckySheetReducer } from '../component/store';
 
 const reducer = combineReducers({
-    header: headerReducer
+    luckySheet: luckySheetReducer
 });
 
 export default reducer;

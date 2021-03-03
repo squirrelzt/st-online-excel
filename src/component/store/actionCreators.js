@@ -9,14 +9,6 @@ const changeList = (data) => ({
     totalPage: Math.ceil(data.length / 10)
 });
 
-export const searchFocus = () => ({
-    type: actionTypes.SEARCH_FOCUS
-});
-
-export const searchBlur = () => ({
-    type: actionTypes.SEARCH_BLUR
-});
-
 export const getList = () => {
     return (dispatch) => {
         axios.get('/api/headerList.json').then((res) => {
@@ -27,19 +19,12 @@ export const getList = () => {
     }
 };
 
-export const mouseEnter = () => ({
-   type: actionTypes.MOUSE_ENTER
-});
-
-export const mouseLeave = () => ({
-   type: actionTypes.MOUSE_LEAVE
-});
-
-export const changePage = (page) => ({
-   type: actionTypes.CHANGE_PAGE,
-    page
-});
-
-export const initDataAction = () => ({
+export const getInitDataAction = () => ({
     type: actionTypes.GET_INIT_DATA
+});
+
+export const initDataAction = (data) => ({
+    type: actionTypes.INIT_DATA,
+    // data: fromJS(data)
+    data
 });

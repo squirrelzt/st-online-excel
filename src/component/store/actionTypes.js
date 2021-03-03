@@ -6,3 +6,4 @@ export const MOUSE_LEAVE = 'header/MOUSE_LEAVE';
 export const CHANGE_PAGE = 'header/CHANGE_PAGE';
 
 export const GET_INIT_DATA = 'GET_INIT_DATA';
+export const INIT_DATA = 'INIT_DATA';
