@@ -7,6 +7,8 @@ function* getInitData() {
 
     try {
         const res =  yield axios.get('/api/initData.json');
+        console.log('saga---------------');
+        console.log(res.data);
         const action = initDataAction(res.data);
         yield put(action);
     } catch(e) {

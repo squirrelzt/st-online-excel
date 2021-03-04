@@ -25,6 +25,5 @@ export const getInitDataAction = () => ({
 
 export const initDataAction = (data) => ({
     type: actionTypes.INIT_DATA,
-    // data: fromJS(data)
-    data
+    data: data
 });

@@ -58,8 +58,9 @@ export default (state = defaultState, action) => {
             // return state.set('data', action.data);
 
             newState.data = action.data;
-            console.log('reducer --------------')
-            console.log(newState)
+            console.log('reducer --------------');
+            console.log(action.data);
+            console.log(newState);
             return newState;
         default :
             return state;

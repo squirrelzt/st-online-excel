@@ -7,7 +7,9 @@ import axios from "axios";
 class Luckysheet extends React.Component {
 
     componentDidMount() {
+        this.props.getInitData();
         const { data } = this.props;
+        console.log(data);
         let result;
         axios.get('/api/initData.json').then((res) => {
             result = res.data;
@@ -129,8 +131,8 @@ class Luckysheet extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log('mapStateToProps ----------------');
-    console.log(state.luckySheet.data);
+    // console.log('mapStateToProps ----------------');
+    // console.log(state.luckySheet.data);
     return {
         // data: state.getIn('data')
         data: state.luckySheet.data,
@@ -141,7 +143,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-
+        getInitData() {
+            dispatch(getInitDataAction());
+        }
     }
 };
 
