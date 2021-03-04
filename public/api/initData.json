@@ -1,6 +1,6 @@
 [
   {
-    "name": "Sheet1",
+    "name": "test",
     "color": "",
     "index": 0,
     "status": 1,
@@ -38,23 +38,5 @@
     "image":[],
     "showGridLines": 1,
     "dataVerification":{}
-  },
-  {
-    "name": "Sheet2",
-    "color": "",
-    "index": 1,
-    "status": 0,
-    "order": 1,
-    "celldata": [],
-    "config": {}
-  },
-  {
-    "name": "Sheet3",
-    "color": "",
-    "index": 2,
-    "status": 0,
-    "order": 2,
-    "celldata": [],
-    "config": {}
   }
 ]
