@@ -6,8 +6,7 @@ import { getInitDataAction } from './store/actionCreators';
 class Luckysheet extends React.Component {
 
     componentDidMount() {
-        const { initData, data} = this.props;
-        initData();
+        const { data } = this.props;
         console.log('初始化------------------');
         console.log(data);
         // 配置项
