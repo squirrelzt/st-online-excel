@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import ReconnectingWebSocket from 'reconnecting-websocket';
 import { getInitDataAction } from './store/actionCreators';
 import axios from 'axios';
 import { remoteCall } from './common/remoteCall'
@@ -8,6 +9,28 @@ import { remoteCall } from './common/remoteCall'
 class Luckysheet extends React.Component {
 
     componentDidMount = async () => {
+        let id = sessionStorage.getItem('id');
+        if (!id) {
+            id = Math.floor(Math.random() * 100 + 1);
+            sessionStorage.setItem('id', id);
+        }
+
+        const rws = new ReconnectingWebSocket(remoteCall.getWebSocketUrl() + '/'+ id);
+        rws.addEventListener('open', ()=> {
+            rws.send('');
+        });
+        rws.addEventListener('message', e => {
+            if (e.data) {
+                const wsResultData = JSON.parse(e.data)
+                console.log('================================');
+                console.log(wsResultData);
+                let data = window.luckysheet.getluckysheetfile()[0].data;
+                console.log(data);
+                let newData = window.luckysheet.getluckysheetfile()[0].data.splice(wsResultData.r + 1, 1, wsResultData);
+               console.log(newData)
+            }
+        });
+
         // const result =  await axios.get('/api/initData.json');
         const result =  await axios.get(remoteCall.getUrlPrefix() + '/worksheet/initData');
         // 配置项
@@ -68,6 +91,7 @@ class Luckysheet extends React.Component {
                         c,
                         v: newValue
                     });
+
                 },
                 sheetActivate:function(index, isPivotInitial, isNewSheet){
                     // console.info(index, isPivotInitial, isNewSheet)
