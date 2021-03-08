@@ -8,7 +8,7 @@
     "hide": 0,
     "row": 36,
     "column": 18,
-    "defaultRowHeight": 19,
+    "defaultRowHeight": 20,
     "defaultColWidth": 73,
     "celldata": [],
     "config": {
@@ -22,7 +22,7 @@
 
     },
     "scrollLeft": 0,
-    "scrollTop": 315,
+    "scrollTop": 0,
     "luckysheet_select_save": [],
     "calcChain": [],
     "isPivotTable":false,

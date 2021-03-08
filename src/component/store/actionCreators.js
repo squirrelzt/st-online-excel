@@ -1,7 +1,6 @@
 import axios from 'axios';
 import * as actionTypes from './actionTypes';
 import { fromJS } from "immutable";
-import {GET_INIT_DATA} from "./actionTypes";
 
 const changeList = (data) => ({
     type: actionTypes.CHANGE_LIST,

@@ -16,7 +16,7 @@ class Luckysheet extends React.Component {
             allowUpdate: true,
             hook: {
                 cellDragStop: function (cell, postion, sheetFile, ctx, event) {
-                    console.info(cell, postion, sheetFile, ctx, event);
+                    // console.info(cell, postion, sheetFile, ctx, event);
                 },
                 rowTitleCellRenderBefore:function(rowNum,postion,ctx){
                     // console.log(rowNum);
@@ -58,7 +58,9 @@ class Luckysheet extends React.Component {
                     // console.info('cellUpdateBefore',r,c,value,isRefresh)
                 },
                 cellUpdated:function(r,c,oldValue, newValue, isRefresh){
-                    console.info('cellUpdated',r,c,oldValue, newValue, isRefresh)
+                    console.info('cellUpdated',r,c,oldValue, newValue, isRefresh);
+                    let data = window.luckysheet.getluckysheetfile()[0].data;
+                    console.log(data)
                 },
                 sheetActivate:function(index, isPivotInitial, isNewSheet){
                     // console.info(index, isPivotInitial, isNewSheet)
@@ -124,8 +126,6 @@ class Luckysheet extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log('mapStateToProps ----------------');
-    console.log(state.luckySheet.data);
     return {
         // data: state.getIn('data')
         data: state.luckySheet.data,
