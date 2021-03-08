@@ -1,13 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getInitDataAction } from './store/actionCreators';
-import axios from "axios";
+import axios from 'axios';
+import { remoteCall } from './common/remoteCall'
 
 
 class Luckysheet extends React.Component {
 
     componentDidMount = async () => {
-        const result =  await axios.get('/api/initData.json');
+        // const result =  await axios.get('/api/initData.json');
+        const result =  await axios.get(remoteCall.getUrlPrefix() + '/worksheet/initData');
         // 配置项
         const options = {
             container: 'luckysheet', // 设定DOM容器的id
