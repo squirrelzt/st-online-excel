@@ -59,10 +59,15 @@ class Luckysheet extends React.Component {
                 cellUpdateBefore:function(r,c,value,isRefresh){
                     // console.info('cellUpdateBefore',r,c,value,isRefresh)
                 },
-                cellUpdated:function(r,c,oldValue, newValue, isRefresh){
+                cellUpdated: async function(r,c,oldValue, newValue, isRefresh){
                     console.info('cellUpdated',r,c,oldValue, newValue, isRefresh);
-                    let data = window.luckysheet.getluckysheetfile()[0].data;
-                    console.log(data)
+                    // let data = window.luckysheet.getluckysheetfile()[0].data;
+                    // const response = await axios.get('/api/cellUpdated.json', {
+                    const response = await axios.post(remoteCall.getUrlPrefix() + '/worksheet/cellUpdated', {
+                        r,
+                        c,
+                        v: newValue
+                    });
                 },
                 sheetActivate:function(index, isPivotInitial, isNewSheet){
                     // console.info(index, isPivotInitial, isNewSheet)
